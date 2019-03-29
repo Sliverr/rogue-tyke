@@ -33,6 +33,9 @@ class BootScene extends Phaser.Scene {
             frameWidth: 32,
             frameHeight: 48
         });
+        this.load.image('rug', 'assets/images/rug.png');
+        this.load.image('nightstand', 'assets/images/nightstand.png');
+        this.load.image('painting', 'assets/images/painting.png');
     }
 }
 

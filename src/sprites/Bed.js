@@ -6,6 +6,6 @@ export default class Bed extends Phaser.GameObjects.Sprite {
     }
 
     update() {
-        if (!this.scene) return;
+
     }
 }

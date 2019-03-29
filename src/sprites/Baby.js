@@ -11,6 +11,7 @@ export default class Baby extends Phaser.GameObjects.Sprite {
         this.body.setSize(14, 22);
         this.facing = 'down';
         this.hasPants = false;
+        this.anims.play('down');
         this.updateFrame();
     }
 
@@ -22,6 +23,13 @@ export default class Baby extends Phaser.GameObjects.Sprite {
             up: keys.up.isDown || keys.w.isDown,
             space: keys.space.isDown
         };
+
+        if (input.up || input.down || input.left || input.right) {
+            this.moving = true;
+        } else if (this.moving === true) {
+            this.moving = false;
+            this.updateFrame();
+        }
 
         if (input.left) {
             this.body.acceleration.x = -this.moveSpeed;
@@ -46,6 +54,7 @@ export default class Baby extends Phaser.GameObjects.Sprite {
         } else {
             this.body.acceleration.y = 0;
         }
+
         if (input.space && this.hasPants) {
             this.hasPants = false;
             let velocity = {
@@ -67,10 +76,18 @@ export default class Baby extends Phaser.GameObjects.Sprite {
 
     updateFrame() {
         if (this.hasPants) {
-            this.animSuffix = '-pants';
+            this.clothingSuffix = '-pants';
         } else {
-            this.animSuffix = '';
+            this.clothingSuffix = '';
         }
-        this.anims.play(this.facing + this.animSuffix);
+        if (this.moving) {
+            this.moveSuffix = '-walk';
+        } else {
+            this.moveSuffix = '';
+        }
+        let newAnim = this.facing + this.clothingSuffix + this.moveSuffix;
+        if (this.anims.currentAnim.key !== newAnim) {
+            this.anims.play(newAnim);
+        }
     }
 }

@@ -2,6 +2,7 @@ import Baby from '../sprites/Baby';
 import Pants from '../sprites/Pants';
 import Bed from '../sprites/Bed';
 import BedCovers from '../sprites/BedCovers';
+import StaticProp from '../sprites/StaticProp';
 
 class GameScene extends Phaser.Scene {
     constructor(test) {
@@ -22,29 +23,49 @@ class GameScene extends Phaser.Scene {
         this.add.text(4, 16, 'Space to throw pants', {
             fill: '#182'
         });
-        this.bed = new Bed({
-            scene: this,
-            key: 'bed',
-            x: 32 * 7,
-            y: 32 * 3
-        });
         this.pants = new Pants({
             scene: this,
             key: 'pants',
             x: 32 * 5,
             y: 32 * 4
         });
+        this.staticProps = [
+            new Bed({
+                scene: this,
+                key: 'bed',
+                x: 32 * 7,
+                y: 32 * 3
+            }),
+            new BedCovers({
+                scene: this,
+                key: 'bed',
+                x: 32 * 7,
+                y: 32 * 3
+            }),
+            new StaticProp({
+                scene: this,
+                key: 'painting',
+                x: 32 * 3,
+                y: 32 * 2
+            }),
+            new StaticProp({
+                scene: this,
+                key: 'rug',
+                x: 32 * 4,
+                y: 32 * 3.5
+            }),
+            new StaticProp({
+                scene: this,
+                key: 'nightstand',
+                x: 32 * 6.25,
+                y: 32 * 2.75
+            })
+        ];
         this.baby = new Baby({
             scene: this,
             key: 'baby',
             x: 32 * 2,
             y: 32 * 4
-        });
-        this.bedCovers = new BedCovers({
-            scene: this,
-            key: 'bed',
-            x: 32 * 7,
-            y: 32 * 3
         });
 
         this.keys = {

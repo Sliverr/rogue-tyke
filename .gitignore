@@ -64,3 +64,4 @@ dist/
 build/
 dev/
 src-mario/
+.idea

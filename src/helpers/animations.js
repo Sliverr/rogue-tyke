@@ -56,6 +56,22 @@ export default function makeAnimations(scene) {
             frame: 7
         }]
     });
+    scene.anims.create({
+        key: 'down-walk',
+        frames: scene.anims.generateFrameNumbers('baby', {
+            start: 8, end: 9
+        }),
+        frameRate: 8,
+        repeat: -1
+    });
+    scene.anims.create({
+        key: 'up-walk',
+        frames: scene.anims.generateFrameNumbers('baby', {
+            start: 10, end: 11
+        }),
+        frameRate: 8,
+        repeat: -1
+    });
 
     // Bed
     scene.anims.create({
