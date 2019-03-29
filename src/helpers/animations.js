@@ -75,7 +75,7 @@ export default function makeAnimations(scene) {
     scene.anims.create({
         key: 'left-walk',
         frames: scene.anims.generateFrameNumbers('baby', {
-            start: 12, end: 12
+            start: 12, end: 13
         }),
         frameRate: 8,
         repeat: -1
@@ -83,7 +83,7 @@ export default function makeAnimations(scene) {
     scene.anims.create({
         key: 'right-walk',
         frames: scene.anims.generateFrameNumbers('baby', {
-            start: 14, end: 14
+            start: 14, end: 15
         }),
         frameRate: 8,
         repeat: -1
