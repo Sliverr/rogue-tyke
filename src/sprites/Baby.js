@@ -86,7 +86,6 @@ export default class Baby extends Phaser.GameObjects.Sprite {
             this.moveSuffix = '';
         }
         let newAnim = this.facing + this.clothingSuffix + this.moveSuffix;
-        console.log(newAnim);
         if (this.anims.currentAnim.key !== newAnim) {
             this.anims.play(newAnim);
         }
